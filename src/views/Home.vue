@@ -5,8 +5,6 @@
       <router-link  v-for="(item, index) of category" :key="index" :to="item.slug" :class="item.slug" :style="{ backgroundImage: `url('${uri}/image/${item.img}')` }">
         <span>{{item.title}}</span>
       </router-link>
-      <!-- <router-link :to="category[0].slug" class="man" :style="{backgroundImage: 'url('+require('@/assets/img/model-man.jpg')+')'}">
-      <span>{{category[0].title}}</span></router-link> -->
     </div>
   </div>
 </template>
@@ -14,7 +12,6 @@
 <script>
 
   export default {
-    // props: ['category'],
     data(){
       return{
       }

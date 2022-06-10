@@ -16,9 +16,6 @@ const categorymod = {
     getProducts(state){
       return state.products
     },
-    // getChange(state){
-    //   state.changeCategory
-    // }
   },
   mutations: {
     allCategory (state, payload){
@@ -42,17 +39,17 @@ const categorymod = {
       })
     },
     catProducts(context, payload){
-      axios.get(`${context.state.uri}/api/${payload}`)
+      axios.get(`${context.state.uri}/api/catProducts/${payload}`)
       .then(res =>{
         if(res.status === 200){
-          // console.log(res.data)
+          console.log(res.data)
           context.commit('catProducts', res.data)
         }
       })
     },
     subProducts(context, payload){
       axios.get(`${context.state.uri}/api/getSub`, {
-        params: {sub: payload} // ГОВНОКОД
+        params: {sub: payload}
       })
       .then(res => {
         if(res.status === 200){

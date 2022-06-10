@@ -29,33 +29,31 @@
 <script>
   export default {
     data(){
+      
       return{
         male: this.$route.params.id,
-        subCat: this.$route.query.subcategory
+        subCat: this.$route.query.subcategory,
       }
     },
     watch:{
       $route(to){
         if(to.query.subcategory){
           this.subCat = to.query.subcategory
-          // this.$store.dispatch('allSubcategory', this.male)
           this.$store.dispatch('subProducts', this.subCat)
+          // this.$store.dispatch('allSubcategory', this.male)
           // При изменении субкатегориев изменение продуктов
-        } else{
+        } if(this.male){
           this.$store.dispatch('catProducts', this.male) 
           // обратный эффект, дебагер 
         } 
       }
     },
     created(){
-      this.$store.dispatch('allSubcategory', this.male)
+      this.$store.dispatch('allSubcategory', this.male)    
     },
     computed: {
       subcategory(){
         return this.$store.getters.getSubcategory
-      },
-      products(){
-        return this.$store.getters.getProducts
       },
     },
   }

@@ -44,7 +44,7 @@
 
 <script>
   export default {
-    props: ['products'],
+    // props: ['products'],
     data() {
       return {
         likeColor: '#ffffff00',
@@ -55,7 +55,11 @@
     computed:{
       uri(){
         return this.$store.getters.getUri
-      }
+      },
+      products(){
+        // console.log(this.$store.getters.getProducts);
+        return this.$store.getters.getProducts
+      },
     },
     methods:{
       likeToggle(){
